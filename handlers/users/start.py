@@ -7,6 +7,10 @@ from states.states import Homework
 
 from loader import dp
 
+@dp.message_handler(IsGroup(),ADMINS,CommandStart(),state='*')
+async def bot_start(message: types.Message):
+    await message.reply(f"Assalom alaykum! {message.from_user.first_name}\nGuruh vazifalari nazorat qilinmoqda")
+    return ''
 
 @dp.message_handler(IsGroup(),CommandStart(),state='*')
 async def bot_start(message: types.Message):
