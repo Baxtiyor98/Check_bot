@@ -47,8 +47,8 @@ async def get_files(message:Message, state:FSMContext):
                 await state.update_data({
                     'file':[]
                     })
-            # else:
-            #     await message.reply('Hali file yubormadingiz!!!')
+            else:
+                await message.reply('Hali file yubormadingiz!!!')
         except:
             await message.answer('Hali file yubormadingiz!!!')
             return ''
