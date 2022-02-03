@@ -38,14 +38,17 @@ async def get_files(message:Message, state:FSMContext):
         pass
     if int(data['id'])==int(user.id) and message.text=='🔼 Yuklash 🔼':
         try:
-            for i in data['file']:
-                await bot.send_document(chat_id=ADMINS[0],document=i)
-            await bot.send_message(chat_id=ADMINS[0],text=f"{data['name']}ning uy vazifalari👆👆👆")
-            await message.answer('Vazifalar yuborildi✅✅✅')
-            files = []
-            await state.update_data({
-                'file':[]
-                })
+            if data['file']:
+                for i in data['file']:
+                    await bot.send_document(chat_id=ADMINS[0],document=i)
+                await bot.send_message(chat_id=ADMINS[0],text=f"{data['name']}ning uy vazifalari👆👆👆")
+                await message.answer('Vazifalar yuborildi✅✅✅')
+                files = []
+                await state.update_data({
+                    'file':[]
+                    })
+            # else:
+            #     await message.reply('Hali file yubormadingiz!!!')
         except:
             await message.answer('Hali file yubormadingiz!!!')
             return ''
