@@ -37,11 +37,18 @@ async def get_files(message:Message, state:FSMContext):
     except:
         pass
     if int(data['id'])==int(user.id) and message.text=='🔼 Yuklash 🔼':
+        # soat = message.date.hour+int(5)
+        minut = message.date.astimezone
+        print(minut)
+        # if soat<10:
+        #     soat = '0'+soat
+        # if minut<10:
+        #     minut = '0'+minut
         try:
             if data['file']:
                 for i in data['file']:
                     await bot.send_document(chat_id=ADMINS[0],document=i)
-                await bot.send_message(chat_id=ADMINS[0],text=f"{data['name']}ning uy vazifalari👆👆👆\nYuborilgan:{message.date.day}-{message.date.month}-{message.date.year} | {message.date.hour+int(5)}:{message.date.minute}")
+                await bot.send_message(chat_id=ADMINS[0],text=f"{data['name']}ning uy vazifalari👆👆👆\nYuborilgan:{message.date.date}")
                 await message.answer('Vazifalar yuborildi✅✅✅')
                 files = []
                 await state.update_data({
