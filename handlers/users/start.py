@@ -1,5 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
+from data.config import ADMINS
 from filters.group_filter import IsGroup
 from filters.private_filter import IsPrivate
 from aiogram.dispatcher.storage import FSMContext
