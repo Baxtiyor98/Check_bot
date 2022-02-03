@@ -42,6 +42,7 @@ async def get_files(message:Message, state:FSMContext):
                 await bot.send_document(chat_id=ADMINS[0],document=i)
             await bot.send_message(chat_id=ADMINS[0],text=f"{data['name']}ning uy vazifalari👆👆👆")
             await message.answer('Vazifalar yuborildi✅✅✅')
+            files = []
         except:
             await message.answer('Hali file yubormadingiz!!!')
             return ''
